@@ -27,3 +27,5 @@ nohup python -u start_cam.py > log/cam.log  2>&1 &
 访问 http://树莓派IP:9082?xxxx 即可看到摄像头内容
 xxxxx 为自己设置的WEB_TOKEN
 配合 frp 可外网访问
+
+[1]: https://github.com/waveform80/pistreaming
