@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=${WIDTH}, initial-scale=1"/>
+	<title>树莓派监控</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+			margin-top: 10%;
+		}
+	</style>
+</head>
+<body>
+    <canvas id="video-canvas" width=${WIDTH} height=${HEIGHT}>
+    </canvas>
+	<script src="https://cdn.bootcss.com/jsmpeg/0.2/jsmpg.js"></script>
+	<script type="text/javascript">
+		var canvas = document.getElementById('video-canvas');
+		canvas.getContext('2d').fillText('正在加载...', canvas.width/2-30, canvas.height/3);
+		var client = new WebSocket('ws://raspi.ltd:8084?${WS_TOKEN}');<!-- 问号后面为web_socket的token需要与start_cam.py中一致 -->
+        var player = new jsmpeg(client ,{canvas:canvas});
+	</script>
+</body>
+</html>
